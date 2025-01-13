@@ -38,7 +38,7 @@ void EMUSerial::send(uint8_t channel, float value){
 	int index = channel;
 	currentFrame.channel = channels[index];
 	currentFrame.magic = EMUSERIAL_MAGIC;
-	uint16_t val = value * divider[index];
+	int16_t val = value * divider[index];
 	currentFrame.valueH = (val >>8) &0xff;
 	currentFrame.valueL = val & 0xff;
 	currentFrame.checksum = checksumCalc();
