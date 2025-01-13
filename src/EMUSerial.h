@@ -31,6 +31,7 @@ class EMUSerial {
 
 private:
 	bool decodeEmuFrame(const struct emu_frame &frame);
+	uint8_t checksumCalc();
 
 	Stream* serial;
 	struct emu_frame currentFrame;

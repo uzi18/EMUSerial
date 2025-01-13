@@ -4,6 +4,11 @@ EMUSerial::EMUSerial(Stream& stream) {
 	serial = &stream;
 }
 
+uint8_t EMUSerial::checksumCalc() {
+	uint8_t checksum = currentFrame.channel + currentFrame.magic + currentFrame.valueH + currentFrame.valueL;
+	return checksum;
+}
+
 void EMUSerial::checkEmuSerial() {
 	while (serial->available()) {
 		//Move stream of bytes from bottom of frame upwards
@@ -12,11 +17,8 @@ void EMUSerial::checkEmuSerial() {
 		currentFrame.checksum = serial->read(); //checksum --> last byte
 
 		if (currentFrame.magic == EMUSERIAL_MAGIC) {
-			//Calc own checksum
-			uint8_t checksum = currentFrame.channel + currentFrame.magic + currentFrame.valueH + currentFrame.valueL;
-
-			//Compare to what we received
-			if (currentFrame.checksum == checksum) decodeEmuFrame(currentFrame);
+			//Compare checksum to what we received
+			if (currentFrame.checksum == checksumCalc()) decodeEmuFrame(currentFrame);
 		}
 	}
 }
