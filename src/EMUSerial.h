@@ -43,6 +43,8 @@ public:
 	EMUSerial(Stream& serial);
 	void checkEmuSerial();
 
+	void sendRPM(uint16_t rpm);
+
 	struct emu_data_t emu_data;
 };
 
