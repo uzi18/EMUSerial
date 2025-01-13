@@ -24,7 +24,7 @@ void EMUSerial::checkEmuSerial() {
 }
 
 void EMUSerial::sendRPM(uint16_t rpm) {
-	int index = 0;
+	int index = chRPM;
 	currentFrame.channel = channels[index];
 	currentFrame.magic = EMUSERIAL_MAGIC;
 	uint16_t val = rpm * divider[index];

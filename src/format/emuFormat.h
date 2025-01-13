@@ -12,4 +12,40 @@ const int16_t divider[34]={1,1,1,1,37,2,62,1,1,51,20,10,1,1,51,51,51,51,2,1,16,1
 const uint8_t typeIncoming [34]={EMU_TYPE_WORD,EMU_TYPE_WORD,EMU_TYPE_UBYTE,EMU_TYPE_SBYTE,EMU_TYPE_WORD,EMU_TYPE_SBYTE,EMU_TYPE_WORD,EMU_TYPE_WORD,EMU_TYPE_WORD,EMU_TYPE_UBYTE,EMU_TYPE_UBYTE,EMU_TYPE_UBYTE,EMU_TYPE_SBYTE,EMU_TYPE_UBYTE,EMU_TYPE_UBYTE,EMU_TYPE_UBYTE,EMU_TYPE_UBYTE,EMU_TYPE_UBYTE,EMU_TYPE_UBYTE,EMU_TYPE_SBYTE,EMU_TYPE_UBYTE,EMU_TYPE_UBYTE,EMU_TYPE_UBYTE,EMU_TYPE_SWORD,EMU_TYPE_UBYTE,EMU_TYPE_SBYTE,EMU_TYPE_UBYTE,EMU_TYPE_WORD,EMU_TYPE_WORD,EMU_TYPE_UBYTE,EMU_TYPE_UBYTE,EMU_TYPE_UBYTE,EMU_TYPE_WORD,EMU_TYPE_WORD};
 
 const void* channelMapping[34]={&emu_data.RPM,&emu_data.MAP,&emu_data.TPS,&emu_data.IAT,&emu_data.Batt,&emu_data.IgnAngle,&emu_data.pulseWidth,&emu_data.Egt1,&emu_data.Egt2,&emu_data.knockLevel,&emu_data.dwellTime,&emu_data.wboAFR,&emu_data.gear,&emu_data.Baro,&emu_data.analogIn1,&emu_data.analogIn2,&emu_data.analogIn3,&emu_data.analogIn4,&emu_data.injDC,&emu_data.emuTemp,&emu_data.oilPressure,&emu_data.oilTemperature,&emu_data.fuelPressure,&emu_data.CLT,&emu_data.flexFuelEthanolContent,&emu_data.ffTemp,&emu_data.wboLambda,&emu_data.vssSpeed,&emu_data.deltaFPR,&emu_data.fuelLevel,&emu_data.tablesSet,&emu_data.lambdaTarget,&emu_data.scondarypulseWidth,&emu_data.cel};
+enum emu_channels {
+    chRPM = 0,
+    chMAP,
+    chTPS,
+    chIAT,
+    chBatt,
+    chIgnAngle,
+    chpulseWidth,
+    chEgt1,
+    chEgt2,
+    chknockLevel,
+    chdwellTime,
+    chwboAFR,
+    chgear,
+    chBaro,
+    chanalogIn1,
+    chanalogIn2,
+    chanalogIn3,
+    chanalogIn4,
+    chinjDC,
+    chemuTemp,
+    choilPressure,
+    choilTemperature,
+    chfuelPressure,
+    chCLT,
+    chflexFuelEthanolContent,
+    chffTemp,
+    chwboLambda,
+    chvssSpeed,
+    chdeltaFPR,
+    chfuelLevel,
+    chtablesSet,
+    chlambdaTarget,
+    chscondarypulseWidth,
+    chcel
+};
 #endif
