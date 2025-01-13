@@ -44,6 +44,7 @@ public:
 	void checkEmuSerial();
 
 	void sendRPM(uint16_t rpm);
+	void send(uint8_t channel, float value);
 
 	struct emu_data_t emu_data;
 };

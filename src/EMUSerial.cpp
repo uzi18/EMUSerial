@@ -34,6 +34,17 @@ void EMUSerial::sendRPM(uint16_t rpm) {
 	serial->write((uint8_t*)&currentFrame,sizeof(currentFrame));
 }
 
+void EMUSerial::send(uint8_t channel, float value){
+	int index = channel;
+	currentFrame.channel = channels[index];
+	currentFrame.magic = EMUSERIAL_MAGIC;
+	uint16_t val = value * divider[index];
+	currentFrame.valueH = (val >>8) &0xff;
+	currentFrame.valueL = val & 0xff;
+	currentFrame.checksum = checksumCalc();
+	serial->write((uint8_t*)&currentFrame,sizeof(currentFrame));
+}
+
 bool EMUSerial::decodeEmuFrame(const struct emu_frame &frame) {
 	int index = -1;
 
